@@ -9,17 +9,14 @@ class Shiritory {
         const currentWord = word.toLowerCase();
         if (this.words.length === 0) {
             this.words.push(currentWord);
-            //console.log(this.words);
-            return;
+            return this.words;
         } 
         if (!(this.words.find(element=> element === currentWord )) && (lastWord[lastWord.length - 1] === currentWord[0]) && !this.game_over) {
             this.words.push(currentWord);
-            //console.log(this.words);
             return this.words;
         }
 
         this.game_over = true;
-        console.log("game over");
         return "game over";
     }
 
@@ -35,11 +32,10 @@ myShiritori.play("ear"); // ["apple", "ear"]
 myShiritori.play("rhino"); // ["apple", "ear", "rhino"]
 myShiritori.play("jack");
 myShiritori.play("orange");
-console.log(myShiritori.words);
+myShiritori.words;
 
 myShiritori.restart(); // "game restarted"
-console.log(myShiritori.words) // []
-
+myShiritori.words // []
 
 myShiritori.play("hostess"); // ["hostess"]
 myShiritori.play("stash"); // ["hostess", "stash"]
